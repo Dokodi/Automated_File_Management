@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import font
 from tkinter import Tk, filedialog
-import glob, os
+import glob, os, shutil
 import numpy as np
 from PIL import Image
 
@@ -29,35 +29,35 @@ dest_folder = filedialog.askdirectory() #storing folder path in variable.
 
 #fetching files with various photo extensions
 
-def fetchImages():
+#def fetchImages():
 
-        images_jpg = glob.glob(os.path.join(file_name, '*.txt'))
-        images_png = glob.glob(os.path.join(file_name, '*.png'))
-        images_cr2 = glob.glob(os.path.join(file_name, '*.cr2'))
+images_jpg = glob.glob(os.path.join(source_folder, '*.txt'))
+images_png = glob.glob(os.path.join(source_folder, '*.png'))
+images_cr2 = glob.glob(os.path.join(source_folder, '*.cr2'))
 
 #Function to move Photos
 
 def moveFiles():
     for j in images_jpg:
-        shutil.move(j, os.path.join(source_folder, dest_folder, copy_function = copy2 ))
+        shutil.move(j, os.path.join(source_folder, dest_folder ))
 
     for p in images_png:
-        shutil.move(p, os.path.join(source_folder, dest_folder, copy_function = copy2 ))
+        shutil.move(p, os.path.join(source_folder, dest_folder ))
 
     for c in images_cr2:
-        shutil.move(c, os.path.join(source_folder, dest_folder, copy_function = copy2  ))
+        shutil.move(c, os.path.join(source_folder, dest_folder ))
 
 #Function to copy Photos
 
 def copyPhotos():
     for j in images_jpg:
-        shutil.move(j, os.path.join(source_folder, dest_folder, copy_function = copy2 ))
+        shutil.move(j, os.path.join(source_folder, dest_folder ))
 
     for p in images_png:
-        shutil.move(p, os.path.join(source_folder, dest_folder, copy_function = copy2 ))
+        shutil.move(p, os.path.join(source_folder, dest_folder ))
 
     for c in images_cr2:
-        shutil.move(c, os.path.join(source_folder, dest_folder, copy_function = copy2  ))
+        shutil.move(c, os.path.join(source_folder, dest_folder  ))
 
 
 #Function to Delete Photos
