@@ -1,9 +1,11 @@
 from tkinter import *
 from tkinter import font
-from tkinter import Tk, filedialog
+from tkinter import Tk
 import glob, os, shutil
 import numpy as np
 from PIL import Image
+from tkinter import filedialog
+
 
 
 root = Tk()
@@ -12,14 +14,28 @@ myLabel = Label(root, text = "Delete, Move and Copy Files Based on File Types",f
 myLabel.pack()
 
 #Selecting Folder from dialogue box
-
+"""
 def fetchSourceFolder():
 
     root.withdraw() #Hides small tkinter window.
     root.attributes('-topmost', True) # Opened windows will be active. above all windows despite of selection.
 
 source_folder = filedialog.askdirectory() #storing folder path in variable.
+"""
 
+def browse_button():
+    # Allow user to select a directory and store it in global var
+    # called folder_path
+    global folder_path
+    filename = filedialog.askdirectory()
+    folder_path.set(filename)
+
+myButton = Button(root, text = "Choose Source Folder", padx = 50, pady = 10, command = browse_button)
+myButton.pack()
+
+
+
+"""
 def fetchDestinationFolder():
 
     root.withdraw() #Hides small tkinter window.
@@ -72,6 +88,6 @@ def deletePhotos():
     for c in images_cr2:
         os.remove(c)
 
-
+"""
 
 root.mainloop()
