@@ -16,53 +16,47 @@ myLabel.grid(row=0)
 
 
 
-#root.withdraw() #Hides small tkinter window.
-#root.attributes('-topmost', True) # Opened windows will be active. above all windows despite of selection.
-
-#print(source_folder)
-
-dest_folder = ""
-source_folder = ""
 
 
-#Selecting Folder from dialogue box
-#source_folder 
+dest_folder = "" #declaring variable to hool the path for the destination folder
+source_folder = "" #declaring variable to hool the path for the source folder
+
+
+#function to get the path for the source folder
 
 def fetchSourceFolder():
     source_folder = filedialog.askdirectory() #storing folder path in variable.
 
-"""
-def browse_button():
-    # Allow user to select a directory and store it in global var
-    # called folder_path
-    global folder_path
-    filename = filedialog.askdirectory()
-    folder_path.set(filename)
-"""
+
+#button to open file explorer for the selection of a folder
 sourceButton = Button(root, text = "Choose Source Folder", padx = 50, pady = 10, command = fetchSourceFolder)
 sourceButton.grid(row = 10, column = 0)
 
 
-
+#function to get the path for the destination folder
 def fetchDestinationFolder():
     dest_folder = filedialog.askdirectory() #storing folder path in variable.
 
+
+#button to open file explorer for the selection of a folder
 destButton = Button(root, text = "Choose Destination Folder", padx = 50, pady = 10, command = fetchDestinationFolder)
 
 destButton.grid(row = 15, column = 0)
 
-#print(source_folder)
+"""
 
-#fetching files with various photo extensions
+images =     glob.glob(R'C:\Users\Kelvin\Desktop\pract.jpg')
 
-#def fetchImages():
+print(images)
+"""
 
-
-images_jpg = glob.glob(os.path.join(source_folder, '*.txt'))
+#fetching files based on file types
+images_jpg = glob.glob(os.path.join(source_folder, '*.jpg'))
 images_png = glob.glob(os.path.join(source_folder, '*.png'))
 images_cr2 = glob.glob(os.path.join(source_folder, '*.cr2'))
 
-#Function to move Photos
+
+#functions to move, delete, and copy the files.
 """
 def moveFiles():
     for j in images_jpg:
@@ -75,7 +69,7 @@ def moveFiles():
         shutil.move(c, dest_folder )
 
 """
-
+"""
 def moveFiles():
     for j in images_jpg:
         shutil.move(j, os.path.join(source_folder, dest_folder ))
@@ -117,5 +111,5 @@ def deletePhotos():
         os.remove(c)
 
 
-
+"""
 root.mainloop()
